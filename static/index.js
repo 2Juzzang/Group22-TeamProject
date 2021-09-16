@@ -1,4 +1,4 @@
-// 로그인 모달
+// 로그인 모달 이벤트 전파 방지
 var modalLogin = document.getElementById('id01');
 
 window.onclick = function(event) {
@@ -7,7 +7,7 @@ window.onclick = function(event) {
     }
 }
 
-// 회원가입 모달
+// 회원가입 모달 이벤트 전파 방지
 var modalJoin = document.getElementById('id02');
 
 window.onclick = function(event) {
@@ -17,16 +17,16 @@ window.onclick = function(event) {
 }
 
 // 상세보기 모달
-$(function(){
-    $(".card-img-top").click(
-        function() {
-            $(".modal_detail").fadeIn();
-        });
-    $(".detail_content").click(
-        function() {
-            $(".modal_detail").fadeOut();
-        });
-    });
+// $(function(){
+//     $(".card-img-top").click(
+//         function() {
+//             $(".modal_detail").fadeIn();
+//         });
+//     $(".detail_content").click(
+//         function() {
+//             $(".modal_detail").fadeOut();
+//         });
+//     });
 
 // <----API---->
 

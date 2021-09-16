@@ -26,9 +26,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Gothic&family=Sunflower:wght@300&display=swap"
           rel="stylesheet">
-    <script defer src="../static/main.js"></script>
+    <script defer src="../static/index.js"></script>
+    <script defer src="../static/login.js"></script>
+    <script defer src="../static/signup.js"></script>
     <title>Document</title>
-
+    {% block head %}
+    {% endblock %}
 </head>
 <body>
 <nav class="top">
@@ -53,7 +56,14 @@
     <li class="seller2"> 
         <div class="seller"><a onclick="steady()">스테디 셀러</a></div>
             <ul class = "steadyChild">
-                <li><a onclick="steady()">국내도서</a></li>
+                {% for steady1 in steady %}
+                    {% set title = steady1['title'] %}
+                    {% set imgsrc = steady1['imgsrc'] %}
+                    {% set buy = steady1['buy_link'] %}
+                    {% set author = steady1['author'] %}
+                    {% set dosue = '국내도서' %}
+                     <li><a onclick="steady()">국내도서</a></li>
+                {% endfor %}
             </ul>
     </li>
 </ul>
@@ -61,7 +71,7 @@
 <div class="content" id="home">
     <div class="content2" id='main'>
     </div>
-     <!-- 상세이미지 클릭시 모달 -->
+    <!-- 상세이미지 클릭시 모달 -->
     <div class="modal">
             <div class="modal_content" title="클릭하면 창이 닫힙니다.">
                 <div class="book_image">
@@ -78,6 +88,12 @@
             </div>
         </div>
     <!--모달 로그인-->
+    </div>
+
+    </div>
+</div>
+
+    <!-- 모달 로그인 -->
     <div id="id01" class="modal">
         <form class="modal-content animate" method="post">
             <div class="imgcontainer">
@@ -86,10 +102,10 @@
             <div class="container">
                 <label><b>아이디</b></label>
                 <input type="text" placeholder="아이디를 입력해주세요" name="uname" required>
-<!--                <p class="validation_id" style="margin-bottom: 20px;">등록되지 않은 아이디입니다.</p>-->
+            <!--<p class="validation_id" style="margin-bottom: 20px;">등록되지 않은 아이디입니다.</p>-->
                 <label><b>비밀번호</b></label>
                 <input type="password" placeholder="비밀번호를 입력해주세요" name="psw" required>
-<!--                <p class="validation_pw" style="margin-bottom: 20px;">비밀번호가 올바르지 않습니다.</p>-->
+            <!--<p class="validation_pw" style="margin-bottom: 20px;">비밀번호가 올바르지 않습니다.</p>-->
                 <button type="submit">로그인</button>
             </div>
         </form>

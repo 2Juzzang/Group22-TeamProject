@@ -14,6 +14,9 @@ db = client.team22db
 def home():
     return render_template('index.html')
 
+@app.route('/main')
+def main_page():
+    return render_template('main.html')
 
 # API 역할을 하는 부분
 # 홈페이지(베스트셀러 주간)

@@ -28,7 +28,10 @@
 <!-- <script src="../static/main.js"></script> -->
     <script defer src="../static/main.js"></script>
     <title>Document</title>
-
+    {% block head%}
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css' ) }}">
+    
+    {% endblock%}
 </head>
 <body>
 <nav class="top">
