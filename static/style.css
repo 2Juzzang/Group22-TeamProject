@@ -299,12 +299,14 @@ ul {
 
 .validation_id {
     font-size: 9pt;
-    color: red;
+    color: darkgrey;
+    margin-bottom: 20px;
 }
 
 .validation_pw {
     font-size: 9pt;
-    color: red;
+    color: darkgrey;
+    margin-bottom: 20px;
 }
 
 .animate {
