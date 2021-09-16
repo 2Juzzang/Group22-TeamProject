@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/9373a70b51.js" crossorigin="anonymous"></script>
+
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Gothic&family=Sunflower:wght@300&display=swap"
+          rel="stylesheet">
+    <script defer src="../static/main.js"></script>
+    <title>Document</title>
+
+</head>
+<body>
+<nav class="top">
+    <div class="topChild"><img src="../static/img/logo.svg" class="logoImg">
+        <div class="member_box">
+            <li onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><a>로그인</a></li>
+            <li onclick="document.getElementById('id02').style.display='block'" style="width:auto;"><a>회원가입</a></li>
+        </div>
+    </div>
+</nav>
+
+<div class="bookParent">
+<ul class="book">
+    <li class="seller1">
+        <div class="seller"><a>베스트 셀러</a></div>
+        <ul class="bestChild">
+            <li><a onclick="bestWeekly()">주간</a></li>
+            <li><a onclick="bestmonthly()">월간</a></li>
+            <li><a onclick="bestyearly()">연간</a></li>
+        </ul>
+    </li>
+    <li class="seller2"> 
+        <div class="seller"><a onclick="steady()">스테디 셀러</a></div>
+            <ul class = "steadyChild">
+                <li><a onclick="steady()">국내도서</a></li>
+            </ul>
+    </li>
+</ul>
+</div>
+<div class="content" id="home">
+    <div class="content2" id='main'>
+
+    <!-- 상세이미지 클릭시 모달 -->
+    <div class="modal">
+        <div class="modal_content" title="클릭하면 창이 닫힙니다.">
+            <div class="book_image">
+                <img src="http://image.kyobobook.co.kr/images/book/xlarge/729/x9791165343729.jpg" width="440px"
+                     height="565px">
+            </div>
+            <div class="book_title">
+                이 책을 소개합니다~! 만약에 글이
+            </div>
+            <div class="book_info">
+                여기에는 글자를 마구마구 넣을거에요???? 여기에는 글자를 마구마구 넣을거에요???? 여기에는 글자를 마구마구 넣을거에요???? 여기에는 글자를 마구마구 넣을거에요???? 여기에는 글자를
+                마구마구 넣을거에요???? 여기에는 글자를 마구마구 넣을거에요????
+            </div>
+        </div>
+    </div>
+    <div id="id01" class="modal">
+        <form class="modal-content animate" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            </div>
+            <div class="container">
+                <label><b>아이디</b></label>
+                <input type="text" placeholder="아이디를 입력해주세요" name="uname" required>
+                <p class="validation_id" style="margin-bottom: 20px;">등록되지 않은 아이디입니다.</p>
+                <label><b>비밀번호</b></label>
+                <input type="password" placeholder="비밀번호를 입력해주세요" name="psw" required>
+                <p class="validation_pw" style="margin-bottom: 20px;">비밀번호가 올바르지 않습니다.</p>
+                <button type="submit">로그인</button>
+            </div>
+        </form>
+    </div><!--모달 로그인-->
+    <!--모달 회원가입-->
+    <div id="id02" class="modal">
+        <form class="modal-content animate" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            </div>
+            <div class="container">
+                <label><b>아이디</b></label>
+                <input type="text" placeholder="가입하실 아이디를 입력해주세요" name="uname" required>
+                <button class="overlap">중복확인</button>
+                <p class="validation_id" style="margin-bottom: 20px;">이미 사용중인 아이디입니다.</p>
+                <label><b>비밀번호</b></label>
+                <input type="password" placeholder="비밀번호를 입력해주세요 (영문숫자 조합 8자리이상)" name="psw" required>
+                <input type="password" placeholder="비밀번호를 재확인 해주세요" name="psw" required>
+                <p class="validation_pw" style="margin-bottom: 20px;">비밀번호가 일치하지 않습니다.</p>
+                <button type="submit">가입하기</button>
+            </div>
+        </form>
+    </div><!--모달 회원가입-->
+    <!--모달 상세이미지-->
+    <div class="modal_detail">
+        <div class="detail_content" title="클릭하면 창이 닫힙니다.">
+            <div class="book_image">
+                <img src="http://image.kyobobook.co.kr/images/book/xlarge/729/x9791165343729.jpg" width="440px" height="565px">
+            </div>
+            <div class="book_title">
+                이 책을 소개합니다~! 만약에 글이
+            </div>
+            <div class="book_info">
+                여기에는 글자를 마구마구 넣을거에요???? 여기에는 글자를 마구마구 넣을거에요???? 여기에는 글자를 마구마구 넣을거에요???? 여기에는 글자를 마구마구 넣을거에요???? 여기에는 글자를
+                마구마구 넣을거에요???? 여기에는 글자를 마구마구 넣을거에요????
+            </div>
+        </div>
+    </div><!--모달 상세이미지-->
+    </div>
+</div>
+</div>
+</body>
+</html>
