@@ -53,7 +53,14 @@
     <li class="seller2"> 
         <div class="seller"><a onclick="steady()">스테디 셀러</a></div>
             <ul class = "steadyChild">
-                <li><a onclick="steady()">국내도서</a></li>
+                {% for steady1 in steady %}
+                    {% set title = steady1['title'] %}
+                    {% set imgsrc = steady1['imgsrc'] %}
+                    {% set buy = steady1['buy_link'] %}
+                    {% set author = steady1['author'] %}
+                    {% set dosue = '국내도서' %}
+                     <li><a onclick="steady()">국내도서</a></li>
+                {% endfor %}
             </ul>
     </li>
 </ul>
@@ -61,7 +68,7 @@
 <div class="content" id="home">
     <div class="content2" id='main'>
 
-    <!-- 상세이미지 클릭시 모달 -->
+    <!--     상세이미지 클릭시 모달 -->
     <div class="modal">
         <div class="modal_content" title="클릭하면 창이 닫힙니다.">
             <div class="book_image">
@@ -77,11 +84,15 @@
             </div>
         </div>
     </div>
-    <!--모달 상세이미지-->
+
     </div>
 </div>
 
-<div id="id01" class="modal">
+
+
+
+    <!-- 모달 로그인 -->
+    <div id="id01" class="modal">
         <form class="modal-content animate" method="post">
             <div class="imgcontainer">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -96,7 +107,7 @@
                 <button type="submit">로그인</button>
             </div>
         </form>
-    </div><!--모달 로그인-->
+    </div>
     <!--모달 회원가입-->
     <div id="id02" class="modal">
         <form class="modal-content animate" method="post">
@@ -115,7 +126,7 @@
                 <button type="submit">가입하기</button>
             </div>
         </form>
-    </div><!--모달 회원가입-->
+    </div>
     <!--모달 상세이미지-->
     <div class="modal_detail">
         <div class="detail_content" title="클릭하면 창이 닫힙니다.">
