@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block head%}
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css' ) }}">
+<script defer src="{{ url_for('static', filename='login.js') }}"></script>
+{% endblock%}
+{% block content %}
+<div>여기는 로그인페이지</div>
+<form class="modal-content animate" method="post">
+    <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+    <div class="container">
+        <label><b>아이디</b></label>
+        <input type="text" placeholder="아이디를 입력해주세요" name="uname" required>
+<!--                <p class="validation_id" style="margin-bottom: 20px;">등록되지 않은 아이디입니다.</p>-->
+        <label><b>비밀번호</b></label>
+        <input type="password" placeholder="비밀번호를 입력해주세요" name="psw" required>
+<!--                <p class="validation_pw" style="margin-bottom: 20px;">비밀번호가 올바르지 않습니다.</p>-->
+        <button type="submit">로그인</button>
+    </div>
+</form>
+{% endblock %}

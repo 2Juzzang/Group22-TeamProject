@@ -1,44 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../static/style.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-    <!-- JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-
-    <script src="https://kit.fontawesome.com/9373a70b51.js" crossorigin="anonymous"></script>
-
-    <!-- 구글폰트 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Gothic&family=Sunflower:wght@300&display=swap"
-          rel="stylesheet">
-<!-- <script src="../static/main.js"></script> -->
-    <script defer src="../static/main.js"></script>
-    <title>Document</title>
-    {% block head%}
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css' ) }}">
-    
-    {% endblock%}
-</head>
-<body>
+{% extends "index.html" %}
+{% block head%}
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css' ) }}">
+<script defer src="{{ url_for('static', filename='main.js') }}"></script>
+{% endblock%}
+{% block content %}
 <nav class="top">
     <div class="topChild"><img src="../static/img/logo.svg" class="logoImg">
         <div class="member_box">
-    
-            <li><a>나의 관심 목록</a></li>
+            <li style="width:auto;"><a href="/login">로그인</a></li>
+            <li style="width:auto;"><a href="/signup">회원가입</a></li>
         </div>
     </div>
 </nav>
@@ -48,123 +18,30 @@
     <li class="seller1">
         <div class="seller"><a>베스트 셀러</a></div>
         <ul class="bestChild">
-            <li><a>주간</a></li>
-            <li><a>월간</a></li>
-            <li><a>연간</a></li>
+            <li><a onclick="bestWeekly()">주간</a></li>
+            <li><a onclick="bestmonthly()">월간</a></li>
+            <li><a onclick="bestyearly()">연간</a></li>
         </ul>
     </li>
     <li class="seller2"> 
-        <div class="seller"><a>스테디 셀러</a></div>
+        <div class="seller"><a onclick="steady()">스테디 셀러</a></div>
             <ul class = "steadyChild">
-                <li><a>국내도서</a></li>
+                {% for steady1 in steady %}
+                    {% set title = steady1['title'] %}
+                    {% set imgsrc = steady1['imgsrc'] %}
+                    {% set buy = steady1['buy_link'] %}
+                    {% set author = steady1['author'] %}
+                    {% set dosue = '국내도서' %}
+                     <li><a onclick="steady()">국내도서</a></li>
+                {% endfor %}
             </ul>
     </li>
 </ul>
 </div>
+<div class="content" id="home">
+    <div class="content2" id='main'>
 
-<div class="content">
-    <div class="content2">
-        <div class="card">
-            <img class="card-img-top" src="http://image.kyobobook.co.kr/images/book/large/729/l9791165343729.jpg"
-                 alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title" style="text-align: center">달러구트의 꿈 백화점2</h5>
-                <div class="btns" style="text-align: center">
-                    <a href="#" class="btn btn-primary"><i class="far fa-heart" style="user-select: auto;"></i></a>
-                    <a href="#" class="btn btn-primary">보러가기</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="http://image.kyobobook.co.kr/images/book/large/729/l9791165343729.jpg"
-                 alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title" style="text-align: center">달러구트의 꿈 백화점2</h5>
-                <div class="btns" style="text-align: center">
-                    <a href="#" class="btn btn-primary"><i class="far fa-heart" style="user-select: auto;"></i></a>
-                    <a href="#" class="btn btn-primary">보러가기</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="http://image.kyobobook.co.kr/images/book/large/729/l9791165343729.jpg"
-                 alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title" style="text-align: center">달러구트의 꿈 백화점2</h5>
-                <div class="btns" style="text-align: center">
-                    <a href="#" class="btn btn-primary"><i class="far fa-heart" style="user-select: auto;"></i></a>
-                    <a href="#" class="btn btn-primary">보러가기</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="http://image.kyobobook.co.kr/images/book/large/729/l9791165343729.jpg"
-                 alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title" style="text-align: center">달러구트의 꿈 백화점2</h5>
-                <div class="btns" style="text-align: center">
-                    <a href="#" class="btn btn-primary"><i class="far fa-heart" style="user-select: auto;"></i></a>
-                    <a href="#" class="btn btn-primary">보러가기</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="http://image.kyobobook.co.kr/images/book/large/729/l9791165343729.jpg"
-                 alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title" style="text-align: center">달러구트의 꿈 백화점2</h5>
-                <div class="btns" style="text-align: center">
-                    <a href="#" class="btn btn-primary"><i class="far fa-heart" style="user-select: auto;"></i></a>
-                    <a href="#" class="btn btn-primary">보러가기</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="http://image.kyobobook.co.kr/images/book/large/729/l9791165343729.jpg"
-                 alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title" style="text-align: center">달러구트의 꿈 백화점2</h5>
-                <div class="btns" style="text-align: center">
-                    <a href="#" class="btn btn-primary"><i class="far fa-heart" style="user-select: auto;"></i></a>
-                    <a href="#" class="btn btn-primary">보러가기</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="http://image.kyobobook.co.kr/images/book/large/729/l9791165343729.jpg"
-                 alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title" style="text-align: center">달러구트의 꿈 백화점2</h5>
-                <div class="btns" style="text-align: center">
-                    <a href="#" class="btn btn-primary"><i class="far fa-heart" style="user-select: auto;"></i></a>
-                    <a href="#" class="btn btn-primary">보러가기</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="http://image.kyobobook.co.kr/images/book/large/729/l9791165343729.jpg"
-                 alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title" style="text-align: center">달러구트의 꿈 백화점2</h5>
-                <div class="btns" style="text-align: center">
-                    <a href="#" class="btn btn-primary"><i class="far fa-heart" style="user-select: auto;"></i></a>
-                    <a href="#" class="btn btn-primary">보러가기</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="http://image.kyobobook.co.kr/images/book/large/729/l9791165343729.jpg"
-                 alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title" style="text-align: center">달러구트의 꿈 백화점2</h5>
-                <div class="btns" style="text-align: center">
-                    <a href="#" class="btn btn-primary"><i class="far fa-heart" style="user-select: auto;"></i></a>
-                    <a href="#" class="btn btn-primary">보러가기</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 상세이미지 클릭시 모달 -->
+    <!--     상세이미지 클릭시 모달 -->
     <div class="modal">
         <div class="modal_content" title="클릭하면 창이 닫힙니다.">
             <div class="book_image">
@@ -180,6 +57,7 @@
             </div>
         </div>
     </div>
- 
-</body>
-</html>
+
+    </div>
+</div>
+{% endblock %}
