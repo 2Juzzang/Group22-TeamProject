@@ -1,4 +1,4 @@
-// 로그인 모달 이벤트 전파방지
+// 로그인 모달
 var modalLogin = document.getElementById('id01');
 
 window.onclick = function(event) {
