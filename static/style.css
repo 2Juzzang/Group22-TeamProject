@@ -33,6 +33,7 @@ li {
     flex: 1;
     display: flex;
     height: 60px;
+    align-items: center;
 }
 
 .favorite{
@@ -245,7 +246,7 @@ ul {
 
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 0 auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 35%; /* Could be more or less, depending on screen size */
 }

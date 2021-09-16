@@ -22,7 +22,7 @@ def signupp():
     return render_template('signup.html')
 
 # API 역할을 하는 부분
-# 홈페이지(베스트셀러 주간)
+# 홈페이지(베스트셀러 주간) # 비회원 HTML 화면 보여주기
 @app.route('/api/weekly', methods=['GET'])
 def bestWeekly():
     weekly = list(db.weekly.find({}, {'_id': False}))
