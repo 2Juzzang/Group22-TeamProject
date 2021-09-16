@@ -16,8 +16,8 @@ driver = webdriver.Chrome(path)
 
 
 from pymongo import MongoClient
-client = MongoClient('mongodb://test:test@localhost', 27017)
-# client = MongoClient('localhost', 27017)
+# client = MongoClient('mongodb://test:test@localhost', 27017)
+client = MongoClient('localhost', 27017)
 db = client.team22db
 
 # <크롤링 필요 목록>
@@ -26,7 +26,7 @@ db = client.team22db
 # 구매 사이트
 
 #크롬창 열기
-# driver = webdriver.Chrome('C:/Users/ksw04/OneDrive/바탕 화면/chromedriver.exe')
+driver = webdriver.Chrome('C:/Users/ksw04/OneDrive/바탕 화면/chromedriver.exe')
 # driver = webdriver.Chrome('/home/ubuntu/sparta/chromedriver.exe')
 #교보문고 베스트셀러 주간 사이트 접속하기
 url = "https://www.kyobobook.co.kr/bestSellerNew/bestseller.laf"
