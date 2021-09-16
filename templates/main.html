@@ -6,17 +6,17 @@
 {% block content %}
 <nav class="top">
     <div class="topChild"><img src="../static/img/logo.svg" class="logoImg">
-        <div class="member_box">
+        <ul class="member_box">
             <li style="width:auto;"><a href="/login">로그인</a></li>
             <li style="width:auto;"><a href="/signup">회원가입</a></li>
-        </div>
+        </ul>
     </div>
 </nav>
 
 <div class="bookParent">
 <ul class="book">
     <li class="seller1">
-        <div class="seller"><a>베스트 셀러</a></div>
+        <div class="seller"><a onclick="bestWeekly()">베스트 셀러</a></div>
         <ul class="bestChild">
             <li><a onclick="bestWeekly()">주간</a></li>
             <li><a onclick="bestmonthly()">월간</a></li>
@@ -26,14 +26,7 @@
     <li class="seller2"> 
         <div class="seller"><a onclick="steady()">스테디 셀러</a></div>
             <ul class = "steadyChild">
-                {% for steady1 in steady %}
-                    {% set title = steady1['title'] %}
-                    {% set imgsrc = steady1['imgsrc'] %}
-                    {% set buy = steady1['buy_link'] %}
-                    {% set author = steady1['author'] %}
-                    {% set dosue = '국내도서' %}
                      <li><a onclick="steady()">국내도서</a></li>
-                {% endfor %}
             </ul>
     </li>
 </ul>
@@ -42,7 +35,7 @@
     <div class="content2" id='main'>
 
     <!--     상세이미지 클릭시 모달 -->
-    <div class="modal">
+    <!-- <div class="modal">
         <div class="modal_content" title="클릭하면 창이 닫힙니다.">
             <div class="book_image">
                 <img src="http://image.kyobobook.co.kr/images/book/xlarge/729/x9791165343729.jpg" width="440px"
@@ -56,7 +49,7 @@
                 마구마구 넣을거에요???? 여기에는 글자를 마구마구 넣을거에요????
             </div>
         </div>
-    </div>
+    </div> -->
 
     </div>
 </div>
