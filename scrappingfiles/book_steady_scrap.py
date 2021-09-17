@@ -11,13 +11,13 @@ from pyvirtualdisplay import Display
 display = Display(visible=0, size=(1920, 1080))
 display.start()
 
-path = '/home/ubuntu/hanghae22/chromedriver'
+path = '/home/ubuntu/hanghae/chromedriver'
 driver = webdriver.Chrome(path)
 
 
 from pymongo import MongoClient
-# client = MongoClient('mongodb://test:test@localhost', 27017)
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://test:test@localhost', 27017)
+# client = MongoClient('localhost', 27017)
 db = client.team22db
 
 # <크롤링 필요 목록>
@@ -26,10 +26,10 @@ db = client.team22db
 # 구매 사이트
 
 #크롬창 열기
-driver = webdriver.Chrome('C:/Users/ksw04/OneDrive/바탕 화면/chromedriver.exe')
-# driver = webdriver.Chrome('/home/ubuntu/sparta/chromedriver.exe')
+# driver = webdriver.Chrome('C:/Users/ksw04/OneDrive/바탕 화면/chromedriver.exe')
+driver = webdriver.Chrome('/home/ubuntu/hanghae/chromedriver.exe')
 #교보문고 베스트셀러 주간 사이트 접속하기
-url = "https://www.kyobobook.co.kr/bestSellerNew/bestseller.laf"
+url = "https://www.kyobobook.co.kr/bestSellerNew/steadyseller.laf?orderClick=D0b"
 driver.get(url)
 
 #1번째 페이지 클릭
@@ -38,7 +38,7 @@ first_page.click()
 time.sleep(3)
 
 #여러 페이지에서 반복하기
-for page in range(10):
+for page in range(2):
     time.sleep(2)
     # 버튼 누르기
     try:
@@ -69,7 +69,7 @@ for page in range(10):
             "buy_link" : buy_link,
             "author" : author
             }
-        db.weekly.insert_one(doc)
+        db.steady.insert_one(doc)
 
 driver.quit()
 
