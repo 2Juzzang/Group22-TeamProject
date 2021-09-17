@@ -27,11 +27,10 @@ function sign_in() {
         success: function (response) {
             if (response['result'] == 'success') {
                 $.cookie('mytoken', response['token'], {path: '/'});
-                console.log('토큰발행')
-                window.location.replace("/member")
+                alert('로그인완료!');
+                window.location.href='/member';
             } else {
                 alert(response['msg'])
-                console.log('토큰안됨')
             }
         }
     });
