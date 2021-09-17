@@ -27,9 +27,7 @@ def loginn():
 @app.route('/signup')
 def signupp():
     return render_template('signup.html')
-@app.route('/memberView')
-def member():
-    return render_template('memberView.html')
+
 # API 역할을 하는 부분
 # 홈페이지(베스트셀러 주간) # 비회원 HTML 화면 보여주기
 @app.route('/api/weekly', methods=['GET'])
@@ -53,55 +51,11 @@ def bestyearly():
 def steady():
     steady = list(db.steady.find({}, {'_id': False}))
     return jsonify({'steady': steady})
-#
-# @app.route('/api/yearly', methods=['GET'])
-# def show_stars():
-#     sample_receive = request.args.get('sample_give')
-#     print(sample_receive)
-#     return jsonify({'msg': 'list 연결되었습니다!'})
-#
-# @app.route('/api/steady', methods=['GET'])
-# def show_stars():
-#     sample_receive = request.args.get('sample_give')
-#     print(sample_receive)
-#     return jsonify({'msg': 'list 연결되었습니다!'})
-#
-# @app.route('/api/detail', methods=['GET'])
-# def show_stars():
-#     sample_receive = request.args.get('sample_give')
-#     print(sample_receive)
-#     return jsonify({'msg': 'list 연결되었습니다!'})
-#
-# @app.route('/api/favorite', methods=['GET'])
-# def show_stars():
-#     sample_receive = request.args.get('sample_give')
-#     print(sample_receive)
-#     return jsonify({'msg': 'list 연결되었습니다!'})
-#
-# @app.route('/api/signin', methods=['POST'])
-# def like_star():
-#     sample_receive = request.form['sample_give']
-#     print(sample_receive)
-#     return jsonify({'msg': 'like 연결되었습니다!'})
-#
-#
-# @app.route('/api/signup', methods=['POST'])
-# def like_star():
-#     sample_receive = request.form['sample_give']
-#     print(sample_receive)
-#     return jsonify({'msg': 'like 연결되었습니다!'})
-#
-# @app.route('/api/heart', methods=['POST'])
-# def like_star():
-#     sample_receive = request.form['sample_give']
-#     print(sample_receive)
-#     return jsonify({'msg': 'like 연결되었습니다!'})
-#
-# @app.route('/api/break', methods=['POST'])
-# def like_star():
-#     sample_receive = request.form['sample_give']
-#     print(sample_receive)
-#     return jsonify({'msg': 'like 연결되었습니다!'})
+
+@app.route('/api/name', methods=['GET'])
+def name():
+    name = list(db.users.find_one({'userid':name}, {'_id': False}))
+    return jsonify({'name': name})    
 
 ############아이디 중복확인 서버
 @app.route('/sign_up/check_dup', methods=['POST'])
@@ -111,7 +65,7 @@ def check_dup():
     return jsonify({'result': 'success', 'exists': exists})
 
 ############회원가입 서버
-@app.route('/sign_up/save', methods=['POST', 'GET'])
+@app.route('/sign_up/save', methods=['POST'])
 def sign_up():
     userid_receive = request.form['userid_give']
     password_receive = request.form['password_give']

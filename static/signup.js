@@ -45,7 +45,8 @@ function check_dup() {
 
         }
     });
-}
+}   
+
 
 /////////회원가입//////////
 function sign_up() {
