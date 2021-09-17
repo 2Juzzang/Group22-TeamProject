@@ -11,7 +11,7 @@ from pyvirtualdisplay import Display
 display = Display(visible=0, size=(1920, 1080))
 display.start()
 
-path = '/home/ubuntu/hanghae/chromedriver'
+path = '/home/ubuntu/hanghae/chromedriver.exe'
 driver = webdriver.Chrome(path)
 
 
@@ -27,7 +27,7 @@ db = client.team22db
 
 #크롬창 열기
 # driver = webdriver.Chrome('C:/Users/ksw04/OneDrive/바탕 화면/chromedriver.exe')
-driver = webdriver.Chrome('/home/ubuntu/hanghae/chromedriver.exe')
+# driver = webdriver.Chrome('/home/ubuntu/hanghae/chromedriver.exe')
 #교보문고 베스트셀러 주간 사이트 접속하기
 url = "https://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?range=1&kind=3&orderClick=DAC&mallGb=KOR&linkClass=A"
 driver.get(url)
