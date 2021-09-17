@@ -1,8 +1,14 @@
 from pymongo import MongoClient
-
-from flask import Flask, render_template, jsonify, request
+import jwt
+import datetime
+import hashlib
+from flask import Flask, render_template, jsonify, request, redirect, url_for
+from werkzeug.utils import secure_filename
+from datetime import datetime, timedelta
 
 app = Flask(__name__)
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 
 # client = MongoClient('mongodb://test:test@localhost', 27017)
 client = MongoClient('localhost', 27017)
@@ -17,6 +23,7 @@ def home():
 @app.route('/login')
 def loginn():
     return render_template('login.html')
+
 @app.route('/signup')
 def signupp():
     return render_template('signup.html')
@@ -93,6 +100,26 @@ def steady():
 #     sample_receive = request.form['sample_give']
 #     print(sample_receive)
 #     return jsonify({'msg': 'like 연결되었습니다!'})
+
+############아이디 중복확인 서버
+@app.route('/sign_up/check_dup', methods=['POST'])
+def check_dup():
+    userid_receive = request.form['userid_give'] #=> 유저네임 받기
+    exists = bool(db.users.find_one({"userid": userid_receive}))
+    return jsonify({'result': 'success', 'exists': exists})
+
+############회원가입 서버
+@app.route('/sign_up/save', methods=['POST'])
+def sign_up():
+    userid_receive = request.form['userid_give']
+    password_receive = request.form['password_give']
+    password_hash = hashlib.sha256(password_receive.encode('utf-8')).hexdigest()
+    doc = {
+        "userid": userid_receive,                               # 아이디
+        "password": password_hash,                              # 비밀번호
+    }
+    db.users.insert_one(doc)
+    return jsonify({'result': 'success'})
 
 
 
