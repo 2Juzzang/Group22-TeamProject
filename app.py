@@ -31,8 +31,24 @@ def loginn():
 def signupp():
     return render_template('signup.html')
 
+@app.route('/memberView')
+def memberView():
+    return render_template('memberView.html')
+
 # API 역할을 하는 부분
 # 홈페이지(베스트셀러 주간) # 비회원 HTML 화면 보여주기
+@app.route('/member')
+def member():
+    token_receive = request.cookies.get('mytoken')
+    try:
+        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+        user_info = db.users.find_one({"id": payload['id']})
+        return redirect("memberView", user_info=user_info)
+    except jwt.ExpiredSignatureError:
+        return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
+    except jwt.exceptions.DecodeError:
+        return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
+
 @app.route('/api/weekly', methods=['GET'])
 def bestWeekly():
     weekly = list(db.weekly.find({}, {'_id': False}))
@@ -82,7 +98,7 @@ def sign_up():
     db.users.insert_one(doc)
     return jsonify({'result': 'success'})
 
-#############로그인 서버
+############로그인 서버
 
 @app.route('/sign_in', methods=['POST'])
 def sign_in():
@@ -92,7 +108,7 @@ def sign_in():
 
     pw_hash = hashlib.sha256(password_receive.encode('utf-8')).hexdigest()
     result = db.users.find_one({'userid': userid_receive, 'password': pw_hash})
-
+    
     if result is not None:
         payload = {
          'id': userid_receive,
