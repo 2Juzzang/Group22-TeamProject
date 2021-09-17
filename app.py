@@ -44,6 +44,10 @@ def memberView():
     # except jwt.exceptions.DecodeError:
     #     return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
 
+@app.route('/memberView')
+def member():
+    return render_template('memberView.html')
+
 # API 역할을 하는 부분
 # 홈페이지(베스트셀러 주간) # 비회원 HTML 화면 보여주기
 @app.route('/api/weekly', methods=['GET'])
@@ -78,7 +82,7 @@ def check_dup():
     return jsonify({'result': 'success', 'exists': exists})
 
 ############회원가입 서버
-@app.route('/sign_up/save', methods=['POST'])
+@app.route('/sign_up/save', methods=['POST', 'GET'])
 def sign_up():
     userid_receive = request.form['userid_give']
     password_receive = request.form['password_give']
