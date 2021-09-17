@@ -32,6 +32,8 @@ function sign_in() {
                 console.log(response)
                 // window.location.replace("/member")
                 window.location.href = "memberView.html";
+                alert('로그인완료!');
+                window.location.href='/member';
             } else {
                 alert(response['msg'])
             }
