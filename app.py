@@ -33,17 +33,6 @@ def signup():
 
 
 #회원 HTMl 화면 보여주기
-@app.route('/member')
-def memberView():
-    token_receive = request.cookies.get('mytoken')
-    try:
-        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        user_info = db.users.find_one({"id": payload['id']})
-        return render_template('memberView.html', user_info=user_info)
-    except jwt.ExpiredSignatureError:
-        return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
-    except jwt.exceptions.DecodeError:
-        return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
 
 @app.route('/memberView')
 def memberView():

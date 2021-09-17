@@ -11,7 +11,7 @@ from pyvirtualdisplay import Display
 display = Display(visible=0, size=(1920, 1080))
 display.start()
 
-path = '/home/ubuntu/hanghae22/chromedriver'
+path = '/home/ubuntu/hanghae/chromedriver'
 driver = webdriver.Chrome(path)
 
 
