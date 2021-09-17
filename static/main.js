@@ -26,7 +26,6 @@ function bestWeekly() {
                     <h5 class="card-title" style="text-align: center">${title}</h5>
                     <span class="author">${author}</span>
                     <div class="btns" style="text-align: center">
-                        <a href="#" class="btn btn-primary"><i class="far fa-heart" style="user-select: auto;"></i></a>
                         <a href="${buy}" target="_blank" class="btn btn-primary">보러가기</a>
                     </div>
                 </div>
@@ -60,7 +59,6 @@ function bestmonthly() {
                     <h5 class="card-title" style="text-align: center">${title}</h5>
                     <span class="author">${author}</span>
                     <div class="btns" style="text-align: center">
-                        <a href="#" class="btn btn-primary"><i class="far fa-heart" style="user-select: auto;"></i></a>
                         <a href="${buy}" target="_blank" class="btn btn-primary">보러가기</a>
                     </div>
                 </div>
@@ -93,7 +91,6 @@ function bestyearly() {
                     <h5 class="card-title" style="text-align: center">${title}</h5>
                     <span class="author">${author}</span>
                     <div class="btns" style="text-align: center">
-                        <a href="#" class="btn btn-primary"><i class="far fa-heart" style="user-select: auto;"></i></a>
                         <a href="${buy}" target="_blank" class="btn btn-primary">보러가기</a>
                     </div>
                 </div>
@@ -126,7 +123,6 @@ function steady() {
                     <h5 class="card-title" style="text-align: center">${title}</h5>
                     <span class="author">${author}</span>
                     <div class="btns" style="text-align: center">
-                        <a href="#" class="btn btn-primary"><i class="far fa-heart" style="user-select: auto;"></i></a>
                         <a href="${buy}" target="_blank" class="btn btn-primary">보러가기</a>
                     </div>
                 </div>
