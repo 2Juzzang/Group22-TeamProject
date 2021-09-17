@@ -11,8 +11,8 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 
 #######db연결########
-# client = MongoClient('mongodb://test:test@localhost', 27017)
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://test:test@localhost', 27017)
+# client = MongoClient('localhost', 27017)
 db = client.team22db
 
 #######시크릿키 선언#######
