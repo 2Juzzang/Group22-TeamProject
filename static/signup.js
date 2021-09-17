@@ -106,9 +106,7 @@ function sign_up() {
             alert("회원가입이 완료되었습니다!")
             window.location.replace("/login")
         }
-        ,error : function(error) { // 결과 에러 콜백함수
-            console.log(error)
-        }
+
     });
 
 }
