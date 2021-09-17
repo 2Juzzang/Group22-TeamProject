@@ -11,14 +11,14 @@ from pyvirtualdisplay import Display
 display = Display(visible=0, size=(1920, 1080))
 display.start()
 
-path = '/home/ubuntu/hanghae/chromedriver.exe'
+path = '/home/ubuntu/chromedriver'
 driver = webdriver.Chrome(path)
 
 
 from pymongo import MongoClient
 client = MongoClient('mongodb://test:test@localhost', 27017)
 # client = MongoClient('localhost', 27017)
-db = client.team22db
+db = client.hanghaedb
 
 # <크롤링 필요 목록>
 # 이미지
