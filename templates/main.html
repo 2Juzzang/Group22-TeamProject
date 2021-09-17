@@ -4,33 +4,36 @@
 <script defer src="{{ url_for('static', filename='main.js') }}"></script>
 {% endblock%}
 {% block content %}
-<nav class="top">
-    <div class="topChild"><a href="/"><img src="../static/img/logo.svg" class="logoImg"></a>
-        <ul class="member_box">
-            <li style="width:auto;"><a href="/login">로그인</a></li>
-            <li style="width:auto;"><a href="/signup">회원가입</a></li>
+<div class="header">
+    <nav class="top">
+        <div class="topChild"><a href="/"><img src="../static/img/logo.svg" class="logoImg"></a>
+            <ul class="member_box">
+                <li style="width:auto;"><a href="/login">로그인</a></li>
+                <li style="width:auto;"><a href="/signup">회원가입</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="bookParent">
+        <ul class="book">
+            <li class="seller1">
+                <div class="seller"><a onclick="bestWeekly()">베스트 셀러</a></div>
+                <ul class="bestChild">
+                    <li><a onclick="bestWeekly()">주간</a></li>
+                    <li><a onclick="bestmonthly()">월간</a></li>
+                    <li><a onclick="bestyearly()">연간</a></li>
+                </ul>
+            </li>
+            <li class="seller2">
+                <div class="seller"><a onclick="steady()">스테디 셀러</a></div>
+                <ul class="steadyChild">
+                    <li><a onclick="steady()">국내도서</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
-</nav>
-
-<div class="bookParent">
-<ul class="book">
-    <li class="seller1">
-        <div class="seller"><a onclick="bestWeekly()">베스트 셀러</a></div>
-        <ul class="bestChild">
-            <li><a onclick="bestWeekly()">주간</a></li>
-            <li><a onclick="bestmonthly()">월간</a></li>
-            <li><a onclick="bestyearly()">연간</a></li>
-        </ul>
-    </li>
-    <li class="seller2"> 
-        <div class="seller"><a onclick="steady()">스테디 셀러</a></div>
-            <ul class = "steadyChild">
-                     <li><a onclick="steady()">국내도서</a></li>
-            </ul>
-    </li>
-</ul>
 </div>
+
 <div class="content" id="home">
     <div class="content2" id='main'>
     </div>
