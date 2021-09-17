@@ -11,8 +11,8 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 
 #######db연결########
-# client = MongoClient('mongodb://test:test@localhost', 27017)
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://test:test@localhost', 27017)
+# client = MongoClient('localhost', 27017)
 db = client.team22db
 
 #######시크릿키 선언#######
@@ -82,7 +82,7 @@ def check_dup():
     return jsonify({'result': 'success', 'exists': exists})
 
 ############회원가입 서버
-@app.route('/sign_up/save', methods=['POST', 'GET'])
+@app.route('/sign_up/save', methods=['POST'])
 def sign_up():
     userid_receive = request.form['userid_give']
     password_receive = request.form['password_give']

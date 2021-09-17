@@ -27,9 +27,9 @@ db = client.team22db
 
 #크롬창 열기
 # driver = webdriver.Chrome('C:/Users/ksw04/OneDrive/바탕 화면/chromedriver.exe')
-# driver = webdriver.Chrome('/home/ubuntu/sparta/chromedriver.exe')
+driver = webdriver.Chrome('/home/ubuntu/hanghae/chromedriver.exe')
 #교보문고 베스트셀러 주간 사이트 접속하기
-url = "https://www.kyobobook.co.kr/bestSellerNew/steadyseller.laf?orderClick=D0b"
+url = "https://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?range=1&kind=3&orderClick=DAC&mallGb=KOR&linkClass=A"
 driver.get(url)
 
 #1번째 페이지 클릭
@@ -38,7 +38,7 @@ first_page.click()
 time.sleep(3)
 
 #여러 페이지에서 반복하기
-for page in range(2):
+for page in range(10):
     time.sleep(2)
     # 버튼 누르기
     try:
@@ -69,7 +69,7 @@ for page in range(2):
             "buy_link" : buy_link,
             "author" : author
             }
-        db.steady.insert_one(doc)
+        db.yearly.insert_one(doc)
 
 driver.quit()
 
