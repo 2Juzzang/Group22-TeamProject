@@ -33,41 +33,13 @@ li {
     flex: 1;
     display: flex;
     height: 60px;
+    align-items: center;
 }
 
 .favorite{
     font-size: 16px;
     color: white;
 }
-
-/* .inner{
-    width: 1000px;
-    display: flex;
-    align-items: center;
-    background-color:yellowgreen;
-    display: none;
-}
-.list-seller{
-    width: 1170px;
-    margin: auto;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    font-size: 15px;
-    color: white;
-}
-.steady-seller{
-    width: 250px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    font-size: 15px;
-    color: white;
-    margin: 0;
-} */
-/*.best-seller1 {*/
-/*    margin-right: 25px;*/
-/*}*/
 
 .content2 {
     display: grid;
@@ -77,7 +49,7 @@ li {
     margin: 35px auto;
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 35px;
-    column-gap: 30px;
+    column-gap: 70px;
     justify-content: stretch;
     place-content: space-between center;
 }
@@ -85,33 +57,24 @@ li {
 /*<----여기서부터 btn-primary까지 최종적으로 추가한 카드 관련 css입니당---->*/
 
 .card {
-    width: 300px;
     margin-bottom: 20px;
 }
 
 .card-img-top {
     width: 220px;
     height: 350px;
-    margin: 20px auto 0 auto;
+    margin: 40px auto 0 auto;
 }
 
 .card-body {
     width: 300px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
 }
 
 .btn-primary {
     width: 100px;
     margin: auto;
 }
-
-/*.best-seller2 {*/
-/*    margin: auto 25px;*/
-/*}*/
-
-/*.best-seller3 {*/
-/*    margin: auto 25px;*/
-/*}*/
 
 /* 모달이미지상세 - 송현 */
 .modal_detail{
@@ -189,7 +152,7 @@ input[type=text], input[type=password] {
 }
 
 button {
-  background-color: #6485F5;
+  background-color: rgb(0, 112, 240);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -283,7 +246,7 @@ ul {
 
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 0 auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 35%; /* Could be more or less, depending on screen size */
 }
@@ -338,6 +301,7 @@ ul {
 
 ul {
     padding-inline-start: 0;
+    margin-top: auto;
 }
 .bookParent{
     width: 100%;
@@ -392,4 +356,7 @@ ul {
     width: 30% !important;
     right: 35px !important;
 }
-
+.member_box li a {
+    color: black;
+    text-decoration: none !important;
+}
