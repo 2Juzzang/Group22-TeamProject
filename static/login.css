@@ -8,3 +8,9 @@
     margin: 60px;
     width: 500px;
 }
+.dangerColor {
+    color: red;
+}
+.successColor {
+    color: blue;
+}
