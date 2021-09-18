@@ -27,7 +27,11 @@ Flask, MongoDB
 
 AWS
  ## 실행화면
+<<<<<<< HEAD
 <iframe width="1205" height="753" src="https://www.youtube.com/embed/ObBzb9AAkxE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+=======
+https://www.youtube.com/embed/ObBzb9AAkxE
+>>>>>>> 5f24badda90a6dbc0d6185577d581333e6def65a
 
 ## 기능
 
