@@ -1,23 +1,23 @@
 $(document).ready(function () {
     bestWeekly();
-    // welcome();
+    welcome();
 });
 
-// 로그인시 환영메세지
-// function welcome() {
-//     $.ajax({
-//         type: 'GET',
-//         url: '/api/name',
-//         data: {},
-//         success: function (response) {
-//             $("#main").empty();
-//             let name = response['name']
-//             let temp_html = `<li class="member" style="width:auto;">${name}님, 환영합니다!</li>`
-//                     $('.member_box').append(temp_html)
+로그인시 환영메세지
+function welcome() {
+    $.ajax({
+        type: 'GET',
+        url: '/api/name',
+        data: {},
+        success: function (response) {
+            $("#member").empty();
+            let name = response['name']
+            let temp_html = `<li class="member" style="width:auto;">${name}님, 환영합니다!</li>`
+                    $('#member').append(temp_html)
                 
-//             }
-//     });
-// }
+            }
+    });
+}
 
 // 첫 화면 베스트주간
 function bestWeekly() {

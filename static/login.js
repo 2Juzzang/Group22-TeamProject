@@ -1,7 +1,6 @@
 function sign_in() {
     let userid = $("#input-id").val()
     let password = $("#input-pw").val()
-
     if (userid == "") {
         $("#help-id-login").text("아이디를 입력해주세요.").addClass('dangerColor')
         $("#input-id").focus()
@@ -9,7 +8,6 @@ function sign_in() {
     } else {
         $("#help-id-login").text("")
     }
-
     if (password == "") {
         $("#help-pw-login").text("비밀번호를 입력해주세요.").addClass('dangerColor')
         $("#input-pw").focus()
@@ -17,7 +15,6 @@ function sign_in() {
     } else {
         $("#help-pw-login").text("")
     }
-
     $.ajax({
         type: "POST",
         url: "/sign_in",
@@ -31,9 +28,8 @@ function sign_in() {
                 $.cookie('mytoken', response['token'], {path: '/'});
                 console.log(response)
                 // window.location.replace("/member")
-                window.location.href = "memberView.html";
                 alert('로그인완료!');
-                window.location.href='/member';
+                window.location.href='memberView';
             } else {
                 alert(response['msg'])
             }

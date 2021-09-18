@@ -10,12 +10,12 @@ app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config['UPLOAD_FOLDER'] = "./static/profile_pics"
 
-#######db연결########
-client = MongoClient('mongodb://test:test@localhost', 27017)
-# client = MongoClient('localhost', 27017)
+#db연결 위 원격, 아래 로컬
+# client = MongoClient('mongodb://test:test@localhost', 27017)
+client = MongoClient('localhost', 27017)
 db = client.team22db
 
-#######시크릿키 선언#######
+#시크릿키 선언
 SECRET_KEY = 'TEAM22'
 
 # 비회원 HTML 화면 보여주기
@@ -23,7 +23,9 @@ SECRET_KEY = 'TEAM22'
 def home():
     return render_template('main.html')
 
-@app.route('/login')
+# 로컬에서 render_template에 methods를 사용하면 연결 에러 로그가 안뜨는데 
+# methods를 사용하지 않을 경우 에러 로그가 발생합니다
+@app.route('/login' ,methods=['POST','GET'])
 def login():
     return render_template('login.html')
 
