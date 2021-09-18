@@ -1,8 +1,9 @@
+// 비회원 기본화면
 $(document).ready(function () {
     bestWeekly();
 });
 
-// 첫 화면 베스트주간
+// 기본화면 베스트주간
 
 function bestWeekly() {
 

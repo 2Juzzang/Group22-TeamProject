@@ -17,7 +17,7 @@ window.onclick = function (event) {
         bestWeekly();
     });
 
-// 첫 화면 베스트주간
+// 기본화면 베스트주간
 
 function bestWeekly() {
 
@@ -26,14 +26,16 @@ function bestWeekly() {
         url: '/api/weekly',
         data: {},
         success: function (response) {
+            // id=main의 내용들을 삭제
             $("#main").empty();
+            // db값을 가져와서 반복문을 돌림
             let week = response['week']
             for (let i = 0; i < week.length; i++) {
                 let title = week[i]['title']
                 let imgsrc = week[i]['imgsrc']
                 let buy = week[i]['buy_link']
                 let author = week[i]['author']
-
+            // 비워준 id=main에 카드들을 붙여줌
                 let temp_html = `<div class="card">
                             <img class="card-img-top" src="${imgsrc}"
                                  alt="Card image cap">

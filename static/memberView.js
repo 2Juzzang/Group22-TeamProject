@@ -3,23 +3,25 @@ $(document).ready(function () {
     welcome();
 });
 
-로그인시 환영메세지
+// 로그인시 환영메세지 구현중
 function welcome() {
     $.ajax({
-        type: 'GET',
-        url: '/api/name',
+        type: 'POST',
+        url: '/sign_in',
         data: {},
         success: function (response) {
+            // 토큰의 id에 있는 정보를 가져온다?
             $("#member").empty();
-            let name = response['name']
-            let temp_html = `<li class="member" style="width:auto;">${name}님, 환영합니다!</li>`
-                    $('#member').append(temp_html)
-                
+            let userid = response['userid']
+            let temp_html = `<li class="member" style="width:auto;">${userid}님, 환영합니다!</li>
+                             <li style="width:auto;"><a href="/">로그아웃</a></li>`
+            $('#member').append(temp_html)
+
             }
     });
 }
 
-// 첫 화면 베스트주간
+// 기본화면 베스트주간
 function bestWeekly() {
 
     $.ajax({
