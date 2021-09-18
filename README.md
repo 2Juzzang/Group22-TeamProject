@@ -8,26 +8,27 @@ http://team22book.shop/
 ## 제작 기간 & 팀원
 2021년 9월 13일 ~ 2021년 9월 18일
 
-이지훈,
+- 이지훈,
 정희윤,
 김다은,
 양송현
 
 ## 사용 기술
 
-**Front-end**
+- **Front-end**
 
-HTML,
+  HTML,
 CSS, JQuery
 
-**Back-end**
+
+- **Back-end**
+
+  Flask, MongoDB
 
 
-Flask, MongoDB
+- **Server**
 
-**Server**
-
-AWS
+  AWS
  ## 실행화면
 
 https://www.youtube.com/embed/ObBzb9AAkxE
@@ -37,15 +38,18 @@ https://www.youtube.com/embed/ObBzb9AAkxE
 
 - 로그인, 회원가입
     
-  :  JWT를 이용한 로그인, 회원가입 구현했습니다.
+    JWT를 이용한 로그인, 회원가입 구현했습니다.
 
 
 - 탭 메뉴 
 
-  :  CSS를 통해 탭 메뉴 마우스 오버시 탭 메뉴가 나올 수 있게 구현했습니다.
+    CSS를 통해 탭 메뉴 마우스 오버시 탭 메뉴가 나올 수 있게 구현했습니다.
+
+
+ 
 - 게시글
 
-  :  selenium을 사용하여 크롤링한 데이터들을 페이지뷰에 나타날 수 있게 하고 바로가기 기능을 추가하여 해당 도서의 정보가 있는 사이트로 이동하게 하였습니다.
+    selenium을 사용하여 크롤링한 데이터들을 페이지뷰에 나타날 수 있게 하고 바로가기 기능을 추가하여 해당 도서의 정보가 있는 사이트로 이동하게 하였습니다.
 
 
 ## 개인회고
