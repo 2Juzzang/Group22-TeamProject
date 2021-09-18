@@ -3,6 +3,8 @@
 국내외 베스트셀러 도서와 스테디셀러 도서에 대한 정보들을 손쉽게 조회할 수 있는 사이트입니다. 
 다양한 도서들을 한눈에 파악하고 책에 대한 요약 정보를 확인하러 갈 수 있습니다. 🤴
 
+http://team22book.shop/
+
 ## 제작 기간 & 팀원
 2021년 9월 13일 ~ 2021년 9월 18일
 
@@ -27,11 +29,9 @@ Flask, MongoDB
 
 AWS
  ## 실행화면
-<<<<<<< HEAD
-<iframe width="1205" height="753" src="https://www.youtube.com/embed/ObBzb9AAkxE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-=======
+
 https://www.youtube.com/embed/ObBzb9AAkxE
->>>>>>> 5f24badda90a6dbc0d6185577d581333e6def65a
+
 
 ## 기능
 
