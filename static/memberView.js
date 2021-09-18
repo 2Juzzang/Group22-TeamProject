@@ -6,7 +6,7 @@ $(document).ready(function () {
 // 로그인시 환영메세지 구현중
 function welcome() {
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: '/sign_in',
         data: {},
         success: function (response) {

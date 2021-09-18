@@ -15,7 +15,7 @@ function check_dup() {
     let username = $("#user-id").val() //username 인풋으로 받기
     console.log(username)
     //아무것도 입력하지 않을경우
-    if (username == "") {
+    if (username === "") {
         $("#help-id").text("아이디를 입력해주세요.").removeClass("is-safe").addClass("is-danger dangerColor")
         $("#user-id").focus()
         return;
@@ -70,7 +70,7 @@ function sign_up() {
     }
 
     //패스워드가 빈칸인지 검사
-    if (password == "") {
+    if (password === "") {
         $("#help-password").text("비밀번호를 입력해주세요.").removeClass("is-safe successColor").addClass("is-danger dangerColor")
         $("#user-pw").focus()
         return;
@@ -83,13 +83,13 @@ function sign_up() {
         $("#help-password").text("사용할 수 있는 비밀번호입니다.").removeClass("is-danger successColor").addClass("is-success successColor")
     }
     // 패스워드 확인란에 아무것도 입력하지 않았다면
-    if (password2 == "") {
+    if (password2 === "") {
         $("#help-password2").text("비밀번호를 입력해주세요.").removeClass("is-safe successColor").addClass("is-danger dangerColor")
         $("#user-pw2").focus()
         return;   
         
     //패스워드1, 패스워드2 같은지 검사
-    } else if (password2 != password) {
+    } else if (password2 !== password) {
         $("#help-password2").text("비밀번호가 일치하지 않습니다.").removeClass("is-safe successColor").addClass("is-danger dangerColor")
         $("#user-pw2").focus()
         return;  
@@ -112,6 +112,7 @@ function sign_up() {
         },
         // 가입요청 성공시 메세지를 띄워주고 login화면으로 이동
         success: function (response) {
+            console.log(response)
             alert("회원가입이 완료되었습니다!")
             window.location.replace("/login")
         }

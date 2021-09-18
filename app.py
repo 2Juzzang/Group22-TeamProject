@@ -31,7 +31,7 @@ def login():
     return render_template('login.html')
 
 #회원가입 화면
-@app.route('/signup')
+@app.route('/signup', methods=['POST', 'GET'])
 def signup():
     return render_template('signup.html')
 
@@ -118,7 +118,7 @@ def sign_up():
 
 # 로그인 서버
 # ajax 요청을 받음
-@app.route('/sign_in', methods=['POST'])
+@app.route('/sign_in')
 def sign_in():
     # 아이디와 패스워드를 받아 변수로 지정
     userid_receive = request.form['userid_give']
